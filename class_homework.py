@@ -24,16 +24,16 @@ class restaurant():
         f'guest.almost can be recive {left_guest_serveable} Guest more')
 
 
-eat=restaurant('ABT','fastfood')
-kendeji=restaurant('KFC','fasteating')
-eat.describe_restaurant()
-eat.open_restaurant()
-eat.set_number_served()
-eat.increment_number_served(50)
-kendeji.describe_restaurant()
-kendeji.open_restaurant()
-kendeji.set_number_served()
-kendeji.increment_number_served(50)
+#eat=restaurant('ABT','fastfood')
+#kendeji=restaurant('KFC','fasteating')
+#eat.describe_restaurant()
+#eat.open_restaurant()
+#eat.set_number_served()
+#eat.increment_number_served(50)
+#kendeji.describe_restaurant()
+#kendeji.open_restaurant()
+#kendeji.set_number_served()
+#kendeji.increment_number_served(50)
 
 
 class user():
@@ -55,18 +55,18 @@ class user():
 
     def greet_user(self):
         print(f'hello,{self.first_name.title()} {self.last_name.title()},welcome back.')
-
-alex=user('alex','jinear')
-jineari=user('eairl','jan')
-alex.discribe_user()
-alex.greet_user()
-for i in range(10):
-    alex.increment_login_attempts()
-alex.reset_login_attempts()
-jineari.discribe_user()
-jineari.greet_user()
-i=0
-while i <10:
-    jineari.increment_login_attempts()
-    i=i+1
-jineari.reset_login_attempts()
+if __name__ == '__main__':
+        alex=user('alex','jinear')
+        jineari=user('eairl','jan')
+        alex.discribe_user()
+        alex.greet_user()
+        for i in range(10):
+            alex.increment_login_attempts()
+        alex.reset_login_attempts()
+        jineari.discribe_user()
+        jineari.greet_user()
+        i=0
+        while i <10:
+            jineari.increment_login_attempts()
+            i=i+1
+        jineari.reset_login_attempts()
