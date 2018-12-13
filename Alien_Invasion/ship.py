@@ -19,7 +19,7 @@ class Ship():
 
     def fire_bullet(self,ship,bullets):
         if self.fire and len(bullets) < self.aliens_settings.bullets_allowed and \
-        time.perf_counter()-self.bullet_time>0.5:
+        time.perf_counter()-self.bullet_time>0.2:
             new_bullet=Bullet(self.aliens_settings,self.screen,ship)
             bullets.add(new_bullet)
             self.bullet_time=time.perf_counter()
@@ -31,3 +31,6 @@ class Ship():
         self.rect.centerx=self.centerx
     def blitme(self):
         self.screen.blit(self.image,self.rect)
+
+    def center_ship(self):
+        self.center=self.screen_rect.centerx    

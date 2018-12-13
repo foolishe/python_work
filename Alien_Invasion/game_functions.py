@@ -1,4 +1,4 @@
-import sys,pygame
+import sys,pygame,time
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -68,18 +68,41 @@ def change_feet_direction(aliens_settings,aliens):
         alien.rect.y+=aliens_settings.fleet_drop_speed
     aliens_settings.fleet_direction*=-1
 
-def update_screen(aliens_settings,screen,ship,bullets,aliens):
-    screen.fill(aliens_settings.bg_color)
-    ship.update()
-    ship.blitme()
+def ship_hit(aliens_settings,stats,screen,ship,aliens,bullets):
+    if stats.ships_left>0:
+        stats.ships_left-=1
+        aliens.empty()
+        bullets.empty()
+        create_fleet(aliens_settings,screen,aliens,ship)
+        ship.center_ship()
+        time.sleep(0.5)
+    else: stats.game_active=False
+
+def update_bullets(aliens,bullets,screen,ship,aliens_settings):
     bullets.update()
-    check_fleet_edges(aliens_settings,aliens)
-    aliens.update()
-    aliens.draw(screen)
     for bullet in bullets.copy():
         if bullet.rect.bottom<=0:
             bullets.remove(bullet)
-    ship.fire_bullet(ship,bullets)
+    collisions=pygame.sprite.groupcollide(bullets,aliens,True,True)
+    if len(aliens)==0:
+        bullets.empty()
+        create_fleet(aliens_settings,screen,aliens,ship)
+
+def update_aliens(aliens_settings,aliens,ship,stats,screen,bullets):
+    check_fleet_edges(aliens_settings,aliens)
+    aliens.update()
+    if pygame.sprite.spritecollideany(ship,aliens) or check_aliens_bottom(screen,aliens):
+        ship_hit(aliens_settings,stats,screen,ship,aliens,bullets)
+
+def check_aliens_bottom(screen,aliens):
+    for alien in aliens.sprites():
+        if alien.rect.bottom>=screen.get_rect().bottom:
+            return True
+
+def update_screen(aliens_settings,screen,ship,bullets,aliens,stats):
+    screen.fill(aliens_settings.bg_color)
+    ship.blitme()
+    aliens.draw(screen)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     pygame.display.flip() #让最近绘制的屏幕可见

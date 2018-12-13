@@ -41,13 +41,13 @@ class person():
 walk_steps=5000
 step_distance=[0.3,0.3,0.3,0.2,0.2,0.1]
 David=person(walk_steps,step_distance)
-for i in range(10000):
+for i in range(1000):
     David.x=[0]
     David.y=[0]
     David.random_walk()
     David.show_distance()
 
 plt.figure(figsize=(61.8,38.2))
-plt.scatter(range(10000),David.distances,s=5,c='red')
+plt.scatter(range(10000),David.distances,s=5,c='blue')
 plt.savefig('random_walk_distanse.png',bbox_inches='tight')
 plt.show()
