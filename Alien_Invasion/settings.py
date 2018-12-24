@@ -14,14 +14,14 @@ class Settings():
         self.bullet_color=60,60,60
         self.bullets_allowed=10
         #self.alien_speed=1
-        self.fleet_drop_speed=10
+        self.fleet_drop_speed=20
         self.fleet_direction=1
         self.alien_point=50
 
     def speed_factor(self):
-        self.alien_speed=1.3
-        self.bullet_speed_factor=1.5
-        self.ship_speed_factor=1.5
+        self.alien_speed=5
+        self.bullet_speed_factor=8
+        self.ship_speed_factor=8
         self.alien_point=50
 
     def speed_increase(self):

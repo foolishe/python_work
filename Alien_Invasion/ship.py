@@ -1,10 +1,12 @@
 import pygame
 from bullet import Bullet
 import time
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite):
     bullet_time=0.1
     def __init__(self,screen,aliens_settings):
+        super(Ship,self).__init__()
         self.screen=screen
         self.image=pygame.image.load('images/ship.bmp')
         self.rect=self.image.get_rect()#获取图像的矩形模型
@@ -33,4 +35,4 @@ class Ship():
         self.screen.blit(self.image,self.rect)
 
     def center_ship(self):
-        self.center=self.screen_rect.centerx    
+        self.center=self.screen_rect.centerx
