@@ -3,7 +3,7 @@ from socket import*
 
 
 HOST=''
-PORT=54354
+PORT=54353
 BUFSIZ=1024
 ADDR=(HOST,PORT)
 

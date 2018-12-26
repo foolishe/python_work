@@ -10,6 +10,7 @@ from string import ascii_lowercase as lc
 from sys import maxsize
 from time import ctime
 
+#cd github/python_work/core_python_programming
 
 tlds=('com','edu','net','org','gov')
 for i in range(randrange(5,11)):
@@ -20,4 +21,3 @@ for i in range(randrange(5,11)):
      dlen=randrange(llen,13)
      dom=''.join(choice(lc) for j in range(dlen))
      print('%s::%s@%s.%s::%d-%d-%d' %(dtstr,login,dom,choice(tlds),dtint,llen,dlen ))
-     

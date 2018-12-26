@@ -1,7 +1,7 @@
 from socket import *
 
-HOST='localhost'
-PORT=54354
+HOST='macbook-air'#use the hostname of server
+PORT=54353
 BUFSIZ=1024
 ADDR=(HOST,PORT)
 
