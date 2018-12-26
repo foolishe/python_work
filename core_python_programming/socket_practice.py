@@ -20,7 +20,9 @@ while True:
         data = tcpCliSock.recv(BUFSIZ)
         if not data:
             break
-        tcpClisock.send('[%s] %s ' %(bytes(time.ctime(),'utf-8'),data))
+        data = data.decode('utf-8')
+        data='[%s] %s' %(time.ctime(),data)
+        tcpCliSock.send(bytes(data,'utf-8'))
 
     tcpCliSock.close()
 tcpSerSock.close()

@@ -18,10 +18,8 @@ with open(filename) as f:
             low=int(float(row[3]))
             current_date=datetime.strptime(row[0],'%Y-%m-%d')
             high=int(float(row[1]))
-
-        except ValueError:
+       except ValueError:
             print(current_date,'missing data')
-
         else:
             lows.append(low)
             dates.append(current_date)
