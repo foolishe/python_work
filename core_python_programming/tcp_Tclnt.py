@@ -17,5 +17,4 @@ while True:
     if not data:
         break
     print(data.decode('utf-8'))
-t
-cpCliSock.close()
+tcpCliSock.close()
