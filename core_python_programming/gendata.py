@@ -10,7 +10,7 @@ from string import ascii_lowercase as lc
 from sys import maxsize
 from time import ctime
 
-#cd github/python_work/core_python_programming
+#   cd github/python_work/core_python_programming
 
 tlds=('com','edu','net','org','gov')
 for i in range(randrange(5,11)):
