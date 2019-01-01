@@ -14,7 +14,6 @@ ISBNs = {
 def getRanking(isbn):
     with requests.get('{}{}'.format(AMZN,isbn)) as page:
         data = page.text
-        print(data)
         return str(REGEX.findall(data)[0])#'haven't match any thing but it worked once,mybe the amzon have some rules'
 
 def _main():
