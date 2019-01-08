@@ -54,14 +54,14 @@ def large_order_promo(order):
     if len(distinct_items) >= 10:
         return order.total() * .07
     return 0
-
+print(globals())
 #promos = [fidelity_promo,bulk_item_promo,large_order_promo]
-promos = [globals()[name] for name in globals()
-    if name.exdswith('_promo') and name != 'best_promo']
+promos = [globals()[name] for name in globals() if name.endswith('_promo') and name != 'best_promo']
 '动态收集折扣策略'
 
 def best_promo(order):
     return max(promo(order) for promo in promos)
+
 
 '''“globals()
 
