@@ -32,10 +32,11 @@ class Vector2d:
         return bool(self.x or self.y)
 
     @classmethod
-    def frombytes(cls,octets):
-        typecode = chr(octets[0])
-        memv = memoryview(octets[1:]).cast(typecode)
-        return cls(*memv)
+    def frombytes(*args):
+        typecode = chr(args[1][0])
+        memv = memoryview(args[1][1:]).cast(typecode)
+        print(locals())
+        return args[0](*memv)
 
     def __format__(self,fmt_spec=''):
         if fmt_spec.endswith('p'):
