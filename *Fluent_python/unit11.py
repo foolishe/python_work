@@ -140,3 +140,6 @@ class Sized(metaclass = abc.ABCMeta):
         return NotImplemented
 
 print(Tombola._abc_registry_clear())
+import dis
+
+print(dis.dis(Tombola))
