@@ -154,4 +154,14 @@ class Vector:
     def __rmul__(self,scalar):
         return self * scalar
 
-        
+
+def function(n):
+    try:
+        return 1
+    except:
+        return 2
+
+    finally:
+        return n
+
+print(function(5))
